@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ef25b1ced026243bd762d20687a3cb1",
-    "content-hash": "a65a0cb3cc72448b8eb16af3f82a093b",
+    "hash": "76881398946a99646083d896b4ef0d3f",
+    "content-hash": "61986dd31ccfef4c890ee230b5b2881b",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -54,6 +54,65 @@
                 "mobile-first",
                 "responsive",
                 "web"
+            ]
+        },
+        {
+            "name": "bower-asset/fontawesome",
+            "version": "v4.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "6535013c330e801ecf0b23c437865a7fb344486d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/6535013c330e801ecf0b23c437865a7fb344486d",
+                "reference": "6535013c330e801ecf0b23c437865a7fb344486d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "less/font-awesome.less",
+                    "scss/font-awesome.scss"
+                ],
+                "bower-asset-ignore": [
+                    "*/.*",
+                    "*.json",
+                    "src",
+                    "*.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "*.md"
+                ]
+            },
+            "license": [
+                "OFL-1.1",
+                "MIT",
+                "CC-BY-3.0"
+            ],
+            "description": "Font Awesome"
+        },
+        {
+            "name": "bower-asset/handlebars",
+            "version": "v4.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/handlebars.js.git",
+                "reference": "1e5029661491d012a69ccc2c370837cf362054db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/handlebars.js/zipball/1e5029661491d012a69ccc2c370837cf362054db",
+                "reference": "1e5029661491d012a69ccc2c370837cf362054db",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "handlebars.js"
+            },
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -134,6 +193,62 @@
             ]
         },
         {
+            "name": "bower-asset/js-cookie",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/js-cookie/js-cookie.git",
+                "reference": "5c830fb71a2bd3acce9cb733d692e13316991891"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/js-cookie/js-cookie/zipball/5c830fb71a2bd3acce9cb733d692e13316991891",
+                "reference": "5c830fb71a2bd3acce9cb733d692e13316991891",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "src/js.cookie.js"
+                ],
+                "bower-asset-ignore": [
+                    "travis.sh",
+                    "test",
+                    "Gruntfile.js",
+                    "package.json",
+                    ".gitignore",
+                    ".jshintignore",
+                    ".jshintrc",
+                    ".tm_properties",
+                    ".travis.yml"
+                ]
+            },
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/noty",
+            "version": "v2.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/needim/noty.git",
+                "reference": "6fe2cf81c7b8ecdbdafaa875b82b78cf65e2f100"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/needim/noty/zipball/6fe2cf81c7b8ecdbdafaa875b82b78cf65e2f100",
+                "reference": "6fe2cf81c7b8ecdbdafaa875b82b78cf65e2f100",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/noty/packaged/jquery.noty.packaged.js",
+                "bower-asset-ignore": []
+            },
+            "description": "noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)"
+        },
+        {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
@@ -196,6 +311,54 @@
             ]
         },
         {
+            "name": "cboden/ratchet",
+            "version": "v0.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ratchetphp/Ratchet.git",
+                "reference": "a177819dd0e6eb1d7e4192aeafadfa43a84867f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ratchetphp/Ratchet/zipball/a177819dd0e6eb1d7e4192aeafadfa43a84867f1",
+                "reference": "a177819dd0e6eb1d7e4192aeafadfa43a84867f1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/http": "^3.6",
+                "php": ">=5.3.9",
+                "react/socket": "^0.3 || ^0.4",
+                "symfony/http-foundation": "^2.2|^3.0",
+                "symfony/routing": "^2.2|^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ratchet\\": "src/Ratchet"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Boden",
+                    "email": "cboden@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP WebSocket library",
+            "homepage": "http://socketo.me",
+            "keywords": [
+                "Ratchet",
+                "WebSockets",
+                "server",
+                "sockets"
+            ],
+            "time": "2015-12-23 15:06:48"
+        },
+        {
             "name": "cebe/markdown",
             "version": "1.1.0",
             "source": {
@@ -256,6 +419,52 @@
             "time": "2015-03-06 05:28:07"
         },
         {
+            "name": "evenement/evenement",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igorw/evenement.git",
+                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igorw/evenement/zipball/f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
+                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Evenement": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
+                }
+            ],
+            "description": "Événement is a very simple event dispatching library for PHP",
+            "keywords": [
+                "event-dispatcher",
+                "event-emitter"
+            ],
+            "time": "2012-11-02 14:49:47"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.7.0",
             "source": {
@@ -300,6 +509,208 @@
             "time": "2015-08-05 01:03:42"
         },
         {
+            "name": "guzzle/common",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Common",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Guzzle3/common.git",
+                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Guzzle3/common/zipball/2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
+                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Common": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "collection",
+                "common",
+                "event",
+                "exception"
+            ],
+            "abandoned": "guzzle/guzzle",
+            "time": "2014-08-11 04:32:36"
+        },
+        {
+            "name": "guzzle/http",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Guzzle3/http.git",
+                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Guzzle3/http/zipball/1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
+                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/stream": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Http": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "HTTP libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "client",
+                "curl",
+                "http",
+                "http client"
+            ],
+            "abandoned": "guzzle/guzzle",
+            "time": "2014-08-11 04:32:36"
+        },
+        {
+            "name": "guzzle/parser",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Parser",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Guzzle3/parser.git",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Guzzle3/parser/zipball/6874d171318a8e93eb6d224cf85e4678490b625c",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "URI Template",
+                "cookie",
+                "http",
+                "message",
+                "url"
+            ],
+            "abandoned": "guzzle/guzzle",
+            "time": "2014-02-05 18:29:46"
+        },
+        {
+            "name": "guzzle/stream",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Stream",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Guzzle3/stream.git",
+                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Guzzle3/stream/zipball/60c7fed02e98d2c518dae8f97874c8f4622100f0",
+                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "guzzle/http": "To convert Guzzle request objects to PHP streams"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Stream": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle stream wrapper component",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "component",
+                "stream"
+            ],
+            "abandoned": "guzzle/guzzle",
+            "time": "2014-05-01 21:36:02"
+        },
+        {
             "name": "linslin/yii2-curl",
             "version": "1.0.8",
             "source": {
@@ -341,6 +752,193 @@
                 "yii2"
             ],
             "time": "2016-04-20 14:14:59"
+        },
+        {
+            "name": "react/event-loop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CyanoFresh/event-loop.git",
+                "reference": "40cbc818ac6928cd25093c5c7dbbbb6a7bd7dd2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CyanoFresh/event-loop/zipball/40cbc818ac6928cd25093c5c7dbbbb6a7bd7dd2a",
+                "reference": "40cbc818ac6928cd25093c5c7dbbbb6a7bd7dd2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "ext-event": "~1.0",
+                "ext-libev": "*",
+                "ext-libevent": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\EventLoop\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Event loop abstraction layer that libraries can use for evented I/O.",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "support": {
+                "source": "https://github.com/CyanoFresh/event-loop/tree/master"
+            },
+            "time": "2016-03-04 18:55:50"
+        },
+        {
+            "name": "react/socket",
+            "version": "v0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/socket.git",
+                "reference": "ce015ec5879b96f5d30905f035f223aa85013fcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/socket/zipball/ce015ec5879b96f5d30905f035f223aa85013fcc",
+                "reference": "ce015ec5879b96f5d30905f035f223aa85013fcc",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "~2.0|~1.0",
+                "php": ">=5.3.0",
+                "react/event-loop": "0.4.*|0.3.*",
+                "react/stream": "0.4.*|0.3.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\Socket\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for building an evented socket server.",
+            "keywords": [
+                "Socket"
+            ],
+            "time": "2016-03-01 20:10:35"
+        },
+        {
+            "name": "react/stream",
+            "version": "v0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/stream.git",
+                "reference": "305b2328d2a2e157bc13b61a0f5c6e41b666b188"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/305b2328d2a2e157bc13b61a0f5c6e41b666b188",
+                "reference": "305b2328d2a2e157bc13b61a0f5c6e41b666b188",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "^2.0|^1.0",
+                "php": ">=5.3.8"
+            },
+            "require-dev": {
+                "react/event-loop": "^0.4|^0.3",
+                "react/promise": "^2.0|^1.0"
+            },
+            "suggest": {
+                "react/event-loop": "^0.4",
+                "react/promise": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\Stream\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Basic readable and writable stream interfaces that support piping.",
+            "keywords": [
+                "pipe",
+                "stream"
+            ],
+            "time": "2015-10-07 18:32:58"
+        },
+        {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "2.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "baac28412963974940cbfb6b83940b3aa179b0ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/baac28412963974940cbfb6b83940b3aa179b0ee",
+                "reference": "baac28412963974940cbfb6b83940b3aa179b0ee",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/fontawesome": "4.6.*",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "time": "2016-04-21 11:55:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -394,6 +992,253 @@
                 "mailer"
             ],
             "time": "2015-06-06 14:19:39"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "9002dcf018d884d294b1ef20a6f968efc1128f39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9002dcf018d884d294b1ef20a6f968efc1128f39",
+                "reference": "9002dcf018d884d294b1ef20a6f968efc1128f39",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-03-10 10:34:12"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "99f38445a874e7becb8afc4b4a79ee181cf6ec3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/99f38445a874e7becb8afc4b4a79ee181cf6ec3f",
+                "reference": "99f38445a874e7becb8afc4b4a79ee181cf6ec3f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.1"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.8|~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-03-27 14:50:32"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "1289d16209491b584839022f29257ad859b8532d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
+                "reference": "1289d16209491b584839022f29257ad859b8532d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-01-20 09:13:37"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "d061b609f2d0769494c381ec92f5c5cc5e4a20aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/d061b609f2d0769494c381ec92f5c5cc5e4a20aa",
+                "reference": "d061b609f2d0769494c381ec92f5c5cc5e4a20aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "conflict": {
+                "symfony/config": "<2.8"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "doctrine/common": "~2.2",
+                "psr/log": "~1.0",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
+            },
+            "suggest": {
+                "doctrine/annotations": "For using the annotation loader",
+                "symfony/config": "For using the all-in-one router or any loader",
+                "symfony/dependency-injection": "For loading routes from a service",
+                "symfony/expression-language": "For using expression matching",
+                "symfony/http-foundation": "For using a Symfony Request object",
+                "symfony/yaml": "For using the YAML loader"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Routing\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Routing Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "router",
+                "routing",
+                "uri",
+                "url"
+            ],
+            "time": "2016-03-23 13:23:25"
         },
         {
             "name": "yiisoft/yii2",
@@ -944,9 +1789,18 @@
             "time": "2016-03-18 14:09:46"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "0.4",
+            "alias_normalized": "0.4.0.0",
+            "version": "9999999-dev",
+            "package": "react/event-loop"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "react/event-loop": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

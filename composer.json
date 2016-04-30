@@ -1,55 +1,34 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
-    "type": "project",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
-    },
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=5.4.0",
-        "yiisoft/yii2": ">=2.0.5",
-        "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
-        "linslin/yii2-curl": "^1.0"
-    },
-    "require-dev": {
-        "yiisoft/yii2-codeception": "*",
-        "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-faker": "*"
-    },
-    "config": {
-        "process-timeout": 1800
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject"
-        ]
-    },
-    "extra": {
-        "yii\\composer\\Installer::postCreateProject": {
-            "setPermission": [
-                {
-                    "runtime": "0777",
-                    "web/assets": "0777",
-                    "yii": "0755"
-                }
-            ],
-            "generateCookieValidationKey": [
-                "config/web.php"
-            ]
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
-        }
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.5",
+    "yiisoft/yii2-bootstrap": "*",
+    "yiisoft/yii2-swiftmailer": "*",
+    "linslin/yii2-curl": "^1.0",
+    "cboden/ratchet": "^0.3.4",
+    "bower-asset/handlebars": "^4.0",
+    "bower-asset/js-cookie": "*",
+    "bower-asset/noty": "*",
+    "rmrevin/yii2-fontawesome": "~2.12",
+    "react/event-loop": "dev-master as 0.4"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "yiisoft/yii2-debug": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-faker": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/CyanoFresh/event-loop"
     }
+  ],
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
 }
