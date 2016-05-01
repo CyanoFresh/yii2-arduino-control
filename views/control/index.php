@@ -35,7 +35,7 @@ $this->title = 'Control Panel';
                     </div>
 
                     <div class="panel-footer">
-                        <a class="btn btn-block btn-lg" data-type="led"><span class="ledStatus text-uppercase">off</span></a>
+                        <a class="btn btn-block btn-lg btn-raised" data-type="led"><span class="ledStatus text-uppercase">off</span></a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ $this->title = 'Control Panel';
                     </div>
 
                     <div class="panel-footer">
-                        <a class="btn btn-block btn-lg" data-type="relay"><span class="relayStatus text-uppercase">off</span></a>
+                        <a class="btn btn-block btn-lg btn-raised" data-type="relay"><span class="relayStatus text-uppercase">off</span></a>
                     </div>
                 </div>
             </div>
