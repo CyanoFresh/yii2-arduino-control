@@ -1,9 +1,12 @@
 var WS;
+var WS_opened;
 var WebSocketURL;
 
 var LEDState;
 
 const $loader = $('#loader');
+const $loaderError = $('.loader-error-text');
+const $loaderSpinner = $('.loader-spinner');
 const $content = $('#content');
 const $ledBtn = $('body').find('[data-type="led"]');
 
@@ -11,21 +14,38 @@ function connect() {
     WS = new WebSocket(WebSocketURL);
 
     WS.onopen = function () {
+        WS_opened = true;
 
         $loader.fadeOut(function () {
             $content.fadeIn();
         });
     };
     WS.onclose = function () {
-        $content.fadeOut(function () {
-            $loader.fadeIn();
-        });
+        if (WS_opened) {
+            $loaderError.html('Disconnected from the server');
+
+            $content.fadeOut(function () {
+                $loader.fadeIn(function () {
+                    $loaderSpinner.fadeOut(function () {
+                        $loaderError.fadeIn();
+                    })
+                });
+            });
+        } else {
+            $loaderError.html('Cannot connect: <br>No response from the server');
+        }
 
         WS = null;
     };
     WS.onerror = function () {
+        $loaderError.html('Error happened');
+
         $content.fadeOut(function () {
-            $loader.fadeIn();
+            $loader.fadeIn(function () {
+                $loaderSpinner.fadeOut(function () {
+                    $loaderError.fadeIn();
+                })
+            });
         });
     };
     WS.onmessage = onMessage;

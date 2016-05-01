@@ -3,7 +3,7 @@
 return [
     'domain' => 'a',
     'webSocketURL' => 'ws://localhost:8081',
-    'arduinoRESTURL' => 'http://192.168.1.108',
+    'arduinoRESTURL' => 'http://176.36.54.229',
     'pins' => [
         'led' => 2,
     ],

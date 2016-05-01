@@ -60,7 +60,7 @@ class ControlPanel implements MessageComponentInterface
 
         $conn->send(Json::encode([
             'type' => 'welcome',
-            'led' => $this->ledOn,
+            'led' => $this->getLedIsOn(),
         ]));
     }
 
@@ -132,9 +132,11 @@ class ControlPanel implements MessageComponentInterface
     private function ledOn()
     {
         $this->get('digital/' . $this->config['pins']['led'] . '/1/');
-        
+
         $this->ledOn = true;
-        
+
+        echo 'LED is set to ON';
+
         return $this->sendAll([
             'type' => 'led',
             'on' => true,
@@ -149,6 +151,8 @@ class ControlPanel implements MessageComponentInterface
         $this->get('digital/' . $this->config['pins']['led'] . '/0/');
 
         $this->ledOn = false;
+
+        echo 'LED is set to OFF';
 
         return $this->sendAll([
             'type' => 'led',
@@ -178,7 +182,7 @@ class ControlPanel implements MessageComponentInterface
         if ($ledOn) {
             return 'On';
         }
-        
+
         return 'Off';
     }
 }

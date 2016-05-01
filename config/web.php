@@ -42,11 +42,12 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
+                '' => 'control/index',
             ],
         ],
     ],
     'params' => $params,
+    'defaultRoute' => 'control/index',
 ];
 
 if (YII_ENV_DEV) {
