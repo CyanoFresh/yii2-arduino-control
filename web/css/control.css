@@ -120,3 +120,15 @@
     }
 }
 /* End Loader */
+
+.panel h1 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #efefef;
+    margin-top: 0;
+    padding: 10px 0 20px 0;
+}
+
+.panel-icon {
+    font-size: 10em;
+    margin: 20px 0;
+}

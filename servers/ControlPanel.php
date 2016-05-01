@@ -39,9 +39,19 @@ class ControlPanel implements MessageComponentInterface
      */
     protected $curl;
 
+    protected $connection;
+
     protected $ledOn;
     protected $relayOn;
 
+    /**
+     * ControlPanel constructor.
+     *
+     * Init variables and control panel
+     *
+     * @param $loop
+     * @param $config
+     */
     public function __construct($loop, $config)
     {
         $this->loop = $loop;
@@ -50,6 +60,16 @@ class ControlPanel implements MessageComponentInterface
 
         $this->curl = new Curl();
 
+        if (!$this->checkConnection()) {
+            die('No connection with Arduino');
+        }
+
+        $this->loop->addPeriodicTimer($this->config['connectionCheckInterval'], function () {
+            if (!$this->checkConnection()) {
+                die('No connection with Arduino');
+            }
+        });
+
         $this->ledOn = $this->getLedIsOn();
         $this->relayOn = $this->getRelayIsOn();
 
@@ -57,6 +77,9 @@ class ControlPanel implements MessageComponentInterface
         echo 'Relay is ' . $this->boolToState($this->relayOn) . PHP_EOL;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onOpen(ConnectionInterface $conn)
     {
         $this->clients[$conn->resourceId] = $conn;
@@ -69,9 +92,7 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
-     * @param ConnectionInterface $from
-     * @param string $msg
-     * @return bool|mixed
+     * @inheritdoc
      */
     public function onMessage(ConnectionInterface $from, $msg)
     {
@@ -99,6 +120,9 @@ class ControlPanel implements MessageComponentInterface
         return true;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onClose(ConnectionInterface $conn)
     {
         if (isset($this->clients[$conn->resourceId])) {
@@ -106,6 +130,9 @@ class ControlPanel implements MessageComponentInterface
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
         echo "An error has occurred: {$e->getMessage()}" . PHP_EOL;
@@ -115,8 +142,7 @@ class ControlPanel implements MessageComponentInterface
 
     /**
      * Send data to all clients
-     *
-     * @param array $data
+     * @param array $data Will be encoded to json
      */
     private function sendAll($data)
     {
@@ -129,6 +155,7 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
+     * Get LED state
      * @return bool
      */
     private function getLedIsOn()
@@ -139,40 +166,53 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
+     * Switch LED on
      * @return bool|mixed
      */
     private function ledOn()
     {
-        $this->get('digital/' . $this->config['pins']['led'] . '/1/');
+        if ($this->get('digital/' . $this->config['pins']['led'] . '/1/')) {
+            $this->ledOn = true;
 
-        $this->ledOn = true;
+            echo 'LED is switched ON' . PHP_EOL;
 
-        echo 'LED is set to ON' . PHP_EOL;
+            return $this->sendAll([
+                'type' => 'led',
+                'on' => true,
+            ]);
+        }
+
+        echo 'Cannot switch LED On';
 
         return $this->sendAll([
-            'type' => 'led',
-            'on' => true,
+            'type' => 'error',
+            'message' => 'Cannot switch LED On',
         ]);
     }
 
     /**
-     * @return bool|mixed
+     * Switch LED off
+     * @return bool
      */
     private function ledOff()
     {
-        $this->get('digital/' . $this->config['pins']['led'] . '/0/');
+        if ($this->get('digital/' . $this->config['pins']['led'] . '/0/')) {
+            $this->ledOn = false;
 
-        $this->ledOn = false;
+            echo 'LED is set to OFF' . PHP_EOL;
 
-        echo 'LED is set to OFF' . PHP_EOL;
+            return $this->sendAll([
+                'type' => 'led',
+                'on' => false,
+            ]);
+        }
 
-        return $this->sendAll([
-            'type' => 'led',
-            'on' => false,
-        ]);
+        echo 'Cannot switch LED Off';
+        return false;
     }
 
     /**
+     * Get relay state
      * @return bool
      */
     private function getRelayIsOn()
@@ -183,6 +223,7 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
+     * Switch relay on
      * @return bool|mixed
      */
     private function relayOn()
@@ -200,6 +241,7 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
+     * Switch relay off
      * @return bool|mixed
      */
     private function relayOff()
@@ -217,6 +259,7 @@ class ControlPanel implements MessageComponentInterface
     }
 
     /**
+     * Make request to arduino
      * @param $url
      * @return bool|mixed
      */
@@ -233,6 +276,14 @@ class ControlPanel implements MessageComponentInterface
         return false;
     }
 
+    /**
+     * Get state string by boolean value.
+     * E.g. true = 'On'
+     *      false = 'Off'
+     *
+     * @param $ledOn
+     * @return string
+     */
     private function boolToState($ledOn)
     {
         if ($ledOn) {
@@ -240,5 +291,39 @@ class ControlPanel implements MessageComponentInterface
         }
 
         return 'Off';
+    }
+
+    /**
+     * @return boolean
+     */
+    private function checkConnection()
+    {
+        echo 'Checking Arduino connection...' . PHP_EOL;
+
+        try {
+            $data = $this->get('');
+
+            if (!$data or !$data['connected']) {
+                throw new \Exception;
+            }
+
+            $this->connection = true;
+
+            echo 'Connection is active!' . PHP_EOL;
+
+            return true;
+        } catch (\Exception $e) {
+            if ($this->connection) {
+                $this->connection = false;
+
+                echo 'Connection is lost' . PHP_EOL;
+
+                $this->sendAll([
+                    'type' => 'arduinoConnectionLost',
+                ]);
+            }
+
+            return false;
+        }
     }
 }

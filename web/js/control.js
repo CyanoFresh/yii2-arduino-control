@@ -72,6 +72,20 @@ function onMessage(response) {
             case 'relay':
                 setRelayState(data.on);
                 break;
+            case 'arduinoConnectionLost':
+                $loaderError.html('Lost connection with Arduino');
+
+                $content.fadeOut(function () {
+                    $loader.fadeIn(function () {
+                        $loaderSpinner.fadeOut(function () {
+                            $loaderError.fadeIn();
+                        });
+                    });
+                });
+                break;
+            case 'error':
+                error(data.message);
+                break;
         }
     } catch (e) {
         console.log(e);
@@ -136,6 +150,25 @@ function setRelayState(state) {
 
         $relayBtn.find('span.relayStatus').html('off');
     }
+}
+
+function error(message) {
+    return m(message, 'error');
+}
+
+function m(message, type) {
+    return noty({
+        text: message,
+        type: type,
+        theme: 'my',
+        layout: 'bottomLeft',
+        dismissQueue: true,
+        timeout: 3000,
+        animation: {
+            open: 'animated fadeIn',
+            close: 'animated fadeOut'
+        }
+    });
 }
 
 $(document).ready(function () {
