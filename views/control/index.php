@@ -2,7 +2,6 @@
 /* @var $this yii\web\View */
 
 use app\assets\ControlAsset;
-use rmrevin\yii\fontawesome\FA;
 
 ControlAsset::register($this);
 
@@ -23,6 +22,7 @@ $this->title = 'Control Panel';
 
     <div id="content">
         <div class="row">
+
             <div class="col-sm-4 led">
                 <div class="panel panel-default panel-led">
                     <div class="panel-body text-center">
@@ -34,6 +34,19 @@ $this->title = 'Control Panel';
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-4 relay">
+                <div class="panel panel-default panel-relay">
+                    <div class="panel-body text-center">
+                        <h1>Relay</h1>
+                    </div>
+
+                    <div class="panel-footer">
+                        <a class="btn btn-block btn-lg" data-type="relay"><span class="relayStatus text-uppercase">off</span></a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

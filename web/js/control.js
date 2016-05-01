@@ -3,12 +3,16 @@ var WS_opened;
 var WebSocketURL;
 
 var LEDState;
+var RelayState;
 
 const $loader = $('#loader');
 const $loaderError = $('.loader-error-text');
 const $loaderSpinner = $('.loader-spinner');
 const $content = $('#content');
-const $ledBtn = $('body').find('[data-type="led"]');
+
+const $body = $('body');
+const $ledBtn = $body.find('[data-type="led"]');
+const $relayBtn = $body.find('[data-type="relay"]');
 
 function connect() {
     WS = new WebSocket(WebSocketURL);
@@ -60,9 +64,13 @@ function onMessage(response) {
         switch (data.type) {
             case 'welcome':
                 setLedState(data.led);
+                setRelayState(data.relay);
                 break;
             case 'led':
                 setLedState(data.on);
+                break;
+            case 'relay':
+                setRelayState(data.on);
                 break;
         }
     } catch (e) {
@@ -108,6 +116,28 @@ function setLedState(state) {
     }
 }
 
+function setRelayState(state) {
+    RelayState = state;
+
+    if (state) {
+        if ($relayBtn.hasClass('btn-danger')) {
+            $relayBtn.removeClass('btn-danger');
+        }
+
+        $relayBtn.addClass('btn-success');
+
+        $relayBtn.find('span.relayStatus').html('on');
+    } else {
+        if ($relayBtn.hasClass('btn-success')) {
+            $relayBtn.removeClass('btn-success');
+        }
+
+        $relayBtn.addClass('btn-danger');
+
+        $relayBtn.find('span.relayStatus').html('off');
+    }
+}
+
 $(document).ready(function () {
     connect();
 
@@ -116,6 +146,14 @@ $(document).ready(function () {
 
         send({
             type: 'led'
+        });
+    });
+
+    $relayBtn.click(function (e) {
+        e.preventDefault();
+
+        send({
+            type: 'relay'
         });
     });
 });

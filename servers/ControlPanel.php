@@ -40,6 +40,7 @@ class ControlPanel implements MessageComponentInterface
     protected $curl;
 
     protected $ledOn;
+    protected $relayOn;
 
     public function __construct($loop, $config)
     {
@@ -50,8 +51,10 @@ class ControlPanel implements MessageComponentInterface
         $this->curl = new Curl();
 
         $this->ledOn = $this->getLedIsOn();
+        $this->relayOn = $this->getRelayIsOn();
 
         echo 'LED is ' . $this->boolToState($this->ledOn) . PHP_EOL;
+        echo 'Relay is ' . $this->boolToState($this->relayOn) . PHP_EOL;
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -61,6 +64,7 @@ class ControlPanel implements MessageComponentInterface
         $conn->send(Json::encode([
             'type' => 'welcome',
             'led' => $this->getLedIsOn(),
+            'relay' => $this->getRelayIsOn(),
         ]));
     }
 
@@ -80,6 +84,14 @@ class ControlPanel implements MessageComponentInterface
                 }
 
                 return $this->ledOn();
+
+                break;
+            case 'relay':
+                if ($this->relayOn) {
+                    return $this->relayOff();
+                }
+
+                return $this->relayOn();
 
                 break;
         }
@@ -135,7 +147,7 @@ class ControlPanel implements MessageComponentInterface
 
         $this->ledOn = true;
 
-        echo 'LED is set to ON';
+        echo 'LED is set to ON' . PHP_EOL;
 
         return $this->sendAll([
             'type' => 'led',
@@ -152,10 +164,54 @@ class ControlPanel implements MessageComponentInterface
 
         $this->ledOn = false;
 
-        echo 'LED is set to OFF';
+        echo 'LED is set to OFF' . PHP_EOL;
 
         return $this->sendAll([
             'type' => 'led',
+            'on' => false,
+        ]);
+    }
+
+    /**
+     * @return bool
+     */
+    private function getRelayIsOn()
+    {
+        $response = $this->get('digital/' . $this->config['pins']['relay']);
+
+        return $response['return_value'] === 0 ? true : false;
+    }
+
+    /**
+     * @return bool|mixed
+     */
+    private function relayOn()
+    {
+        $this->get('relay1?params=1');
+
+        $this->relayOn = true;
+
+        echo 'Relay is set to ON' . PHP_EOL;
+
+        return $this->sendAll([
+            'type' => 'relay',
+            'on' => true,
+        ]);
+    }
+
+    /**
+     * @return bool|mixed
+     */
+    private function relayOff()
+    {
+        $this->get('relay1?params=0');
+
+        $this->relayOn = false;
+
+        echo 'Relay is set to OFF' . PHP_EOL;
+
+        return $this->sendAll([
+            'type' => 'relay',
             'on' => false,
         ]);
     }
