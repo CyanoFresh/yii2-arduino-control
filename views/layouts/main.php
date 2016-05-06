@@ -18,6 +18,9 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="Arduino Web Control with Yii2 Framework and WebSockets live demo">
+    <meta name="keywords" content="Arduino Web Control with Yii2 Framework and WebSockets live demo">
+
     <?= Html::csrfMetaTags() ?>
 
     <title><?= $this->title ?> - Arduino CP</title>

@@ -61,12 +61,20 @@ class ControlPanel implements MessageComponentInterface
         $this->curl = new Curl();
 
         if (!$this->checkConnection()) {
-            die('No connection with Arduino');
+            echo 'No connection with Arduino' . PHP_EOL;
+
+            if ($this->config['stopServerOnDisconnect']) {
+                die;
+            }
         }
 
         $this->loop->addPeriodicTimer($this->config['connectionCheckInterval'], function () {
             if (!$this->checkConnection()) {
-                die('No connection with Arduino');
+                echo 'No connection with Arduino' . PHP_EOL;
+
+                if ($this->config['stopServerOnDisconnect']) {
+                    die;
+                }
             }
         });
 
